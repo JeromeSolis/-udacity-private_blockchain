@@ -77,7 +77,7 @@ class Block {
                 resolve(obj);
             } else if (self.height === 0) {
                 resolve(null);
-            } else (reject(Error('Genesis block')));
+            } else (reject(Error("Couldn't find data")));
         });
     }
 }

@@ -72,6 +72,10 @@ class Blockchain {
            block.hash = SHA256(JSON.stringify(block)).toString();
            this.chain.push(block);
            this.height++;
+           /** 
+            * Insights from Nini D from Udacity Knowledge on using chain validation 
+            * when adding blocks (https://knowledge.udacity.com/questions/512452) 
+            * */
            const errorLog = await self.validateChain();
            if (block && errorLog.length === 0) {
                resolve(block);
@@ -174,6 +178,10 @@ class Blockchain {
         let stars = [];
         return new Promise((resolve, reject) => {
             let promises = [];
+            /** 
+            * Insights from Jose M on Udacity Knowledge (https://knowledge.udacity.com/questions/8783) 
+            * and Mozilla documentation (https://knowledge.udacity.com/questions/8783) 
+            */
             self.chain.forEach(block => {
                 promises.push(block.getBData());
             })
