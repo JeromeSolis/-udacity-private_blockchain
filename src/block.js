@@ -42,11 +42,12 @@ class Block {
             // let currentBlock = self;
             // let currentBlockHash = currentBlock.hash;
             let currentBlockHash = self.hash;
-            self.hash = null;                         
+            let testBlock = self;
+            testBlock.hash = null;                         
             // Recalculate the hash of the Block
-            self.hash = SHA256(JSON.stringify(self)).toString();
+            testBlock.hash = SHA256(JSON.stringify(testBlock)).toString();
             // Comparing if the hashes changed
-            if (currentBlockHash !== self.hash) {
+            if (currentBlockHash !== testBlock.hash) {
             // Returning the Block is not valid
                 resolve(false);
             } else {
